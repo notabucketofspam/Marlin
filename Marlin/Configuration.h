@@ -121,7 +121,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 500000
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -1481,6 +1481,7 @@
 #if ENABLED(EEPROM_SETTINGS)
   //#define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
 #endif
+#define SDCARD_EEPROM_EMULATION
 
 //
 // Host Keepalive
@@ -2273,14 +2274,14 @@
 // Support for Adafruit Neopixel LED driver
 //#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-  #define NEOPIXEL_TYPE   NEO_BGR // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #define NEOPIXEL_PIN     PG13       // LED driving pin; was 4
-  //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE; tried RGB, RBG, GRB, BGR (working), BRG (blue), GBR (red)
+  #define NEOPIXEL_TYPE   NEO_BGR // Tried RGB, RBG, GRB, BGR (working), BRG (blue), GBR (red)
+  #define NEOPIXEL_PIN     PG13       // LED driving pin
+  //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE; 
   //#define NEOPIXEL2_PIN    5
   #define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip, larger of 2 strips if 2 neopixel strips are used
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 255  // Initial brightness (0-255); was 127
-  #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+  //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
   // Use a single Neopixel LED for static (background) lighting
   //#define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
