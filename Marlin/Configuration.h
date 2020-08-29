@@ -684,8 +684,8 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  TMC2130
-#define Y_DRIVER_TYPE  TMC2130
+#define X_DRIVER_TYPE  TMC5160
+#define Y_DRIVER_TYPE  TMC5160
 #define Z_DRIVER_TYPE  TMC2130
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
@@ -744,16 +744,16 @@
 
 #define MOTOR_PPS 1600 // Pulses per second. 42BYGHM809 optimal for maximum torque: 800 PPS
 
-#define BELT_SPM 12.5 // Steps per millimeter for belt-driven axis (XY)
-#define LEADSCREW_SPM 320 // Steps per millimeter for leadscrew-driven axis (Z)
-#define GEAR_SPM 52.3125 // Steps per millimeter for gear-driven systems (E)
+#define BELT_SPMM 12.5 // Steps per millimeter for belt-driven axis (XY)
+#define LEADSCREW_SPMM 320 // Steps per millimeter for leadscrew-driven axis (Z)
+#define GEAR_SPMM 52.3125 // Steps per millimeter for gear-driven systems (E)
 
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { (X_MICROSTEPS*BELT_SPM), (Y_MICROSTEPS*BELT_SPM), (Z_MICROSTEPS*LEADSCREW_SPM), (E0_MICROSTEPS*GEAR_SPM) }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { (X_MICROSTEPS*BELT_SPMM), (Y_MICROSTEPS*BELT_SPMM), (Z_MICROSTEPS*LEADSCREW_SPMM), (E0_MICROSTEPS*GEAR_SPMM) }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -761,7 +761,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  * Original: { 300, 300, 5, 25 }
  */
-#define DEFAULT_MAX_FEEDRATE          { (MOTOR_PPS/BELT_SPM), (MOTOR_PPS/BELT_SPM), (MOTOR_PPS/LEADSCREW_SPM), (MOTOR_PPS/GEAR_SPM) }
+#define DEFAULT_MAX_FEEDRATE          { (MOTOR_PPS/BELT_SPMM), (MOTOR_PPS/BELT_SPMM), (MOTOR_PPS/LEADSCREW_SPMM), (MOTOR_PPS/GEAR_SPMM) }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -775,7 +775,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  * Original: { 3000, 3000, 100, 10000 }
  */ 
-#define DEFAULT_MAX_ACCELERATION      { (int)(10*MOTOR_PPS/BELT_SPM), (int)(10*MOTOR_PPS/BELT_SPM), (int)(20*MOTOR_PPS/LEADSCREW_SPM), (int)(400*MOTOR_PPS/GEAR_SPM) }
+#define DEFAULT_MAX_ACCELERATION      { (int)(10*MOTOR_PPS/BELT_SPMM), (int)(10*MOTOR_PPS/BELT_SPMM), (int)(20*MOTOR_PPS/LEADSCREW_SPMM), (int)(400*MOTOR_PPS/GEAR_SPMM) }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1102,8 +1102,8 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR true
+#define INVERT_X_DIR true   // was false
+#define INVERT_Y_DIR false  // was true
 #define INVERT_Z_DIR false
 
 // @section extruder

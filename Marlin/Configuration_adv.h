@@ -1300,7 +1300,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD
+  #define SDCARD_CONNECTION LCD
 
 #endif // SDSUPPORT
 
@@ -2224,14 +2224,11 @@
   #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
   #define INTERPOLATE       false  // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #define TMC_AXIS_CURRENT (1100)
-  #define TMC_AXIS_MICROSTEPS (256)
-
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT       TMC_AXIS_CURRENT        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       1000        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS    TMC_AXIS_MICROSTEPS    // 0..256
-    #define X_RSENSE          0.11
+    #define X_MICROSTEPS    256    // 0..256
+    #define X_RSENSE          0.075
     #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
   #endif
 
@@ -2244,10 +2241,10 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       TMC_AXIS_CURRENT
+    #define Y_CURRENT       1000
     #define Y_CURRENT_HOME  Y_CURRENT
-    #define Y_MICROSTEPS    TMC_AXIS_MICROSTEPS
-    #define Y_RSENSE          0.11
+    #define Y_MICROSTEPS    256
+    #define Y_RSENSE          0.075
     #define Y_CHAIN_POS      -1
   #endif
 
@@ -2260,17 +2257,17 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       (TMC_AXIS_CURRENT*0.7)
+    #define Z_CURRENT       700
     #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS    TMC_AXIS_MICROSTEPS
+    #define Z_MICROSTEPS    256
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      (TMC_AXIS_CURRENT*0.7)
+    #define Z2_CURRENT      700
     #define Z2_CURRENT_HOME Z2_CURRENT
-    #define Z2_MICROSTEPS   TMC_AXIS_MICROSTEPS
+    #define Z2_MICROSTEPS   256
     #define Z2_RSENSE         0.11
     #define Z2_CHAIN_POS     -1
   #endif
@@ -2292,8 +2289,8 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      TMC_AXIS_CURRENT
-    #define E0_MICROSTEPS   TMC_AXIS_MICROSTEPS
+    #define E0_CURRENT      1000
+    #define E0_MICROSTEPS   256
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
   #endif
@@ -2512,9 +2509,9 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  4
+    #define X_STALL_SENSITIVITY  2
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  4
+    #define Y_STALL_SENSITIVITY  2
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  4
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
