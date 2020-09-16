@@ -1851,7 +1851,7 @@
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
 #elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 256 // was 16
+  #define BLOCK_BUFFER_SIZE 128 // was 16
 #else
   #define BLOCK_BUFFER_SIZE 16
 #endif
@@ -2225,7 +2225,7 @@
   #define INTERPOLATE       false  // Interpolate X/Y/Z_MICROSTEPS to 256
 
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT       1000        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       1100        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS    256    // 0..256
     #define X_RSENSE          0.075
@@ -2241,7 +2241,7 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       1000
+    #define Y_CURRENT       1500
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS    256
     #define Y_RSENSE          0.075
@@ -2257,7 +2257,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       700
+    #define Z_CURRENT       1000
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS    256
     #define Z_RSENSE          0.11
@@ -2265,7 +2265,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      700
+    #define Z2_CURRENT      1000
     #define Z2_CURRENT_HOME Z2_CURRENT
     #define Z2_MICROSTEPS   256
     #define Z2_RSENSE         0.11
@@ -2289,7 +2289,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      700
+    #define E0_CURRENT      1200
     #define E0_MICROSTEPS   256
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -2435,7 +2435,7 @@
    * Define you own with
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
-  #define CHOPPER_TIMING CHOPPER_DEFAULT_12V
+  #define CHOPPER_TIMING CHOPPER_09STEP_24V
 
   /**
    * Monitor Trinamic drivers
@@ -2511,7 +2511,7 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  -1
+    #define X_STALL_SENSITIVITY  0
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
     #define Y_STALL_SENSITIVITY  0
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
@@ -3116,7 +3116,7 @@
 //#define M114_REALTIME       // Real current position based on forward kinematics
 //#define M114_LEGACY         // M114 used to synchronize on every call. Enable if needed.
 
-//#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
+#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.

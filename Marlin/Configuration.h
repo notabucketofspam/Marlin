@@ -791,9 +791,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/8)    // X, Y, Z and E acceleration for printing moves; was 3000
-#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/8)    // E acceleration for retracts; was 3000
-#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/8)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
+#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/2)    // X, Y, Z and E acceleration for printing moves; was 3000
+#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/2)    // E acceleration for retracts; was 3000
+#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/2)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
 
 /**
  * Default Jerk limits (mm/s)
