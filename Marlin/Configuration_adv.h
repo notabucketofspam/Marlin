@@ -1851,7 +1851,7 @@
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
 #elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 128 // was 16
+  #define BLOCK_BUFFER_SIZE 32 // was 16
 #else
   #define BLOCK_BUFFER_SIZE 16
 #endif
@@ -1860,7 +1860,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 128 // was 96
-#define BUFSIZE 128     // was 64
+#define BUFSIZE 64     // was 64
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of PROGMEM (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
@@ -2257,7 +2257,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       1000
+    #define Z_CURRENT       1200
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS    256
     #define Z_RSENSE          0.11
@@ -2265,7 +2265,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      1000
+    #define Z2_CURRENT      1200
     #define Z2_CURRENT_HOME Z2_CURRENT
     #define Z2_MICROSTEPS   256
     #define Z2_RSENSE         0.11
@@ -2289,7 +2289,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      1200
+    #define E0_CURRENT      1150
     #define E0_MICROSTEPS   256
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -2513,7 +2513,7 @@
     // TMC2209: 0...255. TMC2130: -64...63
     #define X_STALL_SENSITIVITY  0
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  0
+    #define Y_STALL_SENSITIVITY  1
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  4
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY

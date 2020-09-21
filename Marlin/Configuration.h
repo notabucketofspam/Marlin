@@ -743,7 +743,7 @@
  */
 //#define DISTINCT_E_FACTORS
 
-#define MOTOR_PPS 1600 // Pulses per second. 42BYGHM809 optimal for maximum torque: 800 PPS
+#define MOTOR_PPS 2000 // Pulses per second. 42BYGHM809 optimal for maximum torque: 800 PPS
 
 #define BELT_SPMM 12.5 // Steps per millimeter for belt-driven axis (XY)
 #define LEADSCREW_SPMM 320 // Steps per millimeter for leadscrew-driven axis (Z)
@@ -1003,7 +1003,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 43, -0.40 } // was { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 43, -1.50 } // was { 10, 10, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1752,7 +1752,7 @@
  * Enable one of the following items for a slower SPI transfer speed.
  * This may be required to resolve "volume init" errors.
  */
-//#define SPI_SPEED SPI_HALF_SPEED
+#define SPI_SPEED SPI_HALF_SPEED
 //#define SPI_SPEED SPI_QUARTER_SPEED
 //#define SPI_SPEED SPI_EIGHTH_SPEED
 
