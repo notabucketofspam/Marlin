@@ -493,9 +493,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.0 }
     #define DEFAULT_Kd_LIST { 114.00, 112.0 }
   #else
-    #define DEFAULT_Kp 11.38 // was 22.2
-    #define DEFAULT_Ki 0.67 // was 1.08
-    #define DEFAULT_Kd 48.02 // was 114
+    #define DEFAULT_Kp 18.93
+    #define DEFAULT_Ki 1.70
+    #define DEFAULT_Kd 52.63
   #endif
 #endif // PIDTEMP
 
@@ -534,9 +534,9 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 99.96 // was 10.00
-  #define DEFAULT_bedKi 15.62 // was .023
-  #define DEFAULT_bedKd 426.49 // was 305.4
+  #define DEFAULT_bedKp 69.85
+  #define DEFAULT_bedKi 9.39
+  #define DEFAULT_bedKd 346.44
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune; use "M303 E-1 C8 S70"
@@ -1754,7 +1754,7 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-//#define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items
