@@ -526,7 +526,7 @@
  * When set to any value below 255, enables a form of PWM to the bed that acts like a divider
  * so don't use it unless you are OK with PWM on your bed. (See the comment on enabling PIDTEMPBED)
  */
-#define MAX_BED_POWER 191 // limits duty cycle to bed; 255=full current
+#define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
 
 #if ENABLED(PIDTEMPBED)
   //#define MIN_BED_POWER 0
@@ -736,7 +736,7 @@
  */
 //#define DISTINCT_E_FACTORS
 
-#define MOTOR_PPS 2000 // Pulses per second. 42BYGHM809 optimal for maximum torque: 800 PPS
+#define MOTOR_PPS 3200 // Pulses per second. 42BYGHM809 optimal for maximum torque: 800 PPS
 
 #define BELT_SPMM 12.5 // Steps per millimeter for belt-driven axis (XY)
 #define LEADSCREW_SPMM 320 // Steps per millimeter for leadscrew-driven axis (Z)
@@ -784,9 +784,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/2)    // X, Y, Z and E acceleration for printing moves; was 3000
-#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/2)    // E acceleration for retracts; was 3000
-#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/2)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
+#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/4)    // X, Y, Z and E acceleration for printing moves; was 3000
+#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/4)    // E acceleration for retracts; was 3000
+#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/4)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
 
 /**
  * Default Jerk limits (mm/s)
@@ -798,9 +798,9 @@
  */
 #define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 5.0 // was 10.0
-  #define DEFAULT_YJERK 5.0
-  #define DEFAULT_ZJERK  0.3
+  #define DEFAULT_XJERK 8.0 // was 10.0
+  #define DEFAULT_YJERK 8.0 // was 10.0
+  #define DEFAULT_ZJERK  0.4 // was 0.3
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
 
@@ -996,7 +996,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 43, -1.40 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 19.5, -1.4 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
