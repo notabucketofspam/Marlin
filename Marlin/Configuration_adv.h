@@ -863,7 +863,7 @@
 // Increase the slowdown divisor for larger buffer sizes.
 #define SLOWDOWN
 #if ENABLED(SLOWDOWN)
-  #define SLOWDOWN_DIVISOR 64
+  #define SLOWDOWN_DIVISOR 16
 #endif
 
 /**
@@ -1836,7 +1836,7 @@
 #endif
 
 // Moves (or segments) with fewer steps than this will be joined with the next move
-#define MIN_STEPS_PER_SEGMENT 6
+#define MIN_STEPS_PER_SEGMENT 8 // was 6
 
 /**
  * Minimum delay before and after setting the stepper DIR (in ns)
@@ -1897,7 +1897,7 @@
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
 #elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 16
+  #define BLOCK_BUFFER_SIZE 64 // was 16
 #else
   #define BLOCK_BUFFER_SIZE 16
 #endif
@@ -2270,7 +2270,7 @@
   #define INTERPOLATE       false  // Interpolate X/Y/Z_MICROSTEPS to 256
 
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT       1700        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       1500        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS    256    // 0..256
     #define X_RSENSE          0.075
@@ -2288,7 +2288,7 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       1700
+    #define Y_CURRENT       1500
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS    256
     #define Y_RSENSE          0.075

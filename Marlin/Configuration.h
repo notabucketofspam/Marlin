@@ -791,9 +791,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/4)    // X, Y, Z and E acceleration for printing moves; was 3000
-#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/4)    // E acceleration for retracts; was 3000
-#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/4)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
+#define DEFAULT_ACCELERATION          (int)(MOTOR_PPS/8)    // X, Y, Z and E acceleration for printing moves; was 3000
+#define DEFAULT_RETRACT_ACCELERATION  (int)(MOTOR_PPS/8)    // E acceleration for retracts; was 3000
+#define DEFAULT_TRAVEL_ACCELERATION   (int)(MOTOR_PPS/8)    // X, Y, Z acceleration for travel (non printing) moves; was 3000
 
 /**
  * Default Jerk limits (mm/s)
@@ -1354,7 +1354,7 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 0              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 7      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 5      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
@@ -1773,7 +1773,7 @@
  * Enable one of the following items for a slower SPI transfer speed.
  * This may be required to resolve "volume init" errors.
  */
-#define SPI_SPEED SPI_HALF_SPEED
+//#define SPI_SPEED SPI_HALF_SPEED
 //#define SPI_SPEED SPI_QUARTER_SPEED
 //#define SPI_SPEED SPI_EIGHTH_SPEED
 
@@ -2396,7 +2396,7 @@
 //#define NUM_M106_FANS 1
 
 // Increase the FAN PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
-//#define FAST_PWM_FAN
+#define FAST_PWM_FAN
 
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
