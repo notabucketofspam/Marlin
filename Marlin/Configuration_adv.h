@@ -2323,19 +2323,19 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       1150
+    #define Z_CURRENT       1300
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS    256
-    #define Z_RSENSE          0.11
+    #define Z_RSENSE          0.075
     #define Z_CHAIN_POS      -1
     //#define Z_INTERPOLATE  true
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      1150
+    #define Z2_CURRENT      1300
     #define Z2_CURRENT_HOME Z2_CURRENT
     #define Z2_MICROSTEPS   256
-    #define Z2_RSENSE         0.11
+    #define Z2_RSENSE         0.075
     #define Z2_CHAIN_POS     -1
     //#define Z2_INTERPOLATE true
   #endif
@@ -2359,9 +2359,9 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      1150
+    #define E0_CURRENT      1700
     #define E0_MICROSTEPS   256
-    #define E0_RSENSE         0.11
+    #define E0_RSENSE         0.075
     #define E0_CHAIN_POS     -1
     //#define E0_INTERPOLATE true
   #endif
