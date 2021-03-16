@@ -1672,7 +1672,8 @@
 #if ENABLED(EEPROM_SETTINGS)
   //#define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
 #endif
-#define I2C_EEPROM
+#define I2C_EEPROM // BTT EEPROM V1.0
+#define MARLIN_EEPROM_SIZE 0x8000 // 256kibibit (32768 * 8)
 
 //
 // Host Keepalive
